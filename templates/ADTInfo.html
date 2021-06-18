@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" style="background-image:url(/static/img/bkg.jpg);">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/ADTInfo.css">
+    <title>AVL tree</title>
+</head>
+<body>
+    <h1 style="transition: all 0.5s;">AVL Tree</h1>
+    <div class="Intro">
+        <p style="font-size: larger;">
+            <b><h2>What are AVL trees?</h2></b>Named after their inventor Adelson, Velski & Landis, 
+            AVL trees are  Binary Search Tree (BST) where the 
+            difference between heights of left and right subtrees cannot be more than one for all nodes. 
+            This difference is called the <b>balance factor</b>.<br><b>Example: </b><br>
+            Here we see that the first tree is balanced and the next two trees are not balanced −<br><br>
+            <img src="/static/img/AVLTree.jpg">   <img src="/static/img/NotAVL.jpg"><br><br>
+        </p>
+    </div>
+    <hr>
+    <div class="Insertion">
+        <p style="font-size: larger;">
+            <b><h2>Insertion: </h2></b>To make sure that the given tree remains AVL after every insertion,
+             we must augment the standard BST insert operation to perform some re-balancing. First step in restructuring is the 
+             calculation of balance factor<br>
+             <b>Balance factor = height(left-subtree) – height(right-subtree)</b> <br> 
+             If the balance factor remains −1, 0, or +1 then no rotations
+             are necessary, else need to rebalance<br><br> <b>Trinode restructuring</b> can be used for the balancing of tree<br>
+             Let z be first node going up from w towards root that is
+             unbalanced<br>
+             – Let y be child of z with higher height, and is ancestor of w <br>
+             – Let x be child of y with higher height and is ancestor of w <br>
+             – Due to insertion height of y is higher than its sibling <br><br>
+             Let the subtree that needs to be restructured be rooted at z.<br>
+            – Let (a,b,c) be an inorder listing of x, y, z<br>
+            – Trinode restructure temporarily renames nodes x,y,z as a,b,c
+            in the order of inorder listing <br>
+            – Modification of T caused by trinode restructure is called
+            rotation <br>
+            – Goal is to make b the top node<br>
+            – If b=y, restructure method is called single rotation <br>
+            – If b=x, trinode restructure method is called double rotation<br><br>
+            <img src="/static/img/Singlerotation.png" style="width:600px;height:400px;">   
+            <img src="/static/img/Doublerotation.png" style="width:600px;height:400px;"><br><br>
+        </p>
+    </div>
+    <hr>
+    <div class="Deletion">
+        <p style="font-size: larger;">
+            <b><h2>Deletion: </h2></b>To make sure that the given tree remains AVL after every deletion, 
+            we must augment the standard BST delete operation to perform some re-balancing. 
+            <br>Removal is done initially as in a binary search tree
+            <br>– The node removed or replaced usually ends up in an empty 
+            external node
+            <br>– Parent may become unbalanced
+            <br>Let w be the node to be deleted
+            <br>1) Perform standard BST delete for w.
+            <br>2) Starting from w, travel up and find the first unbalanced node. 
+            <br>Let z be the first unbalanced node, y be the larger height child of z, and x be the larger height child of y.
+            <br>3) Re-balance the tree by performing appropriate rotations on the subtree rooted with z. There can be 4 possible cases that needs to be handled as x, y and z can be arranged in 4 ways. Following are the possible 4 arrangements:
+            <br>
+            <br>a) y is left child of z and x is left child of y (<b>Left Left Case</b>)
+            <br>
+            <img src="/static/img/leftleft.PNG">
+            <br>
+            <br>b) y is left child of z and x is right child of y (<b>Left Right Case</b>)
+            <br>
+            <img src="/static/img/leftright.PNG">
+            <br>                                         x
+            <br>c) y is right child of z and x is right child of y (<b>Right Right Case</b>)
+            <br>
+            <img src="/static/img/rightright.PNG">
+            <br>
+            <br>d) y is right child of z and x is left child of y (<b>Right Left Case</b>)
+            <br>
+            <img src="/static/img/rightleft.PNG">
+            <br>
+            <b><h2>Analysis:</h2></b><br>
+            – Single restructure : O(1)<br>
+            – Finding an element: O(log n)<br>
+            – Insertion: O(log n)<br>
+            – Removal: O(log n)<br>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+html{
+    background-image: url("/static/img/bkg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+hr{
+    color: black;
+}
+h1{
+    transition: all 0.5s;
+    text-align: center;
+    background-color: rgb(241, 241, 189);
+    margin-left: 600px;
+    margin-right: 600px;
+}
+div{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(241, 241, 189);
+}
+.analysis{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(241, 241, 189);
+}
